@@ -3,6 +3,47 @@
     android:id="@+id/userLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/userInfo"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        />
+
+    <TextView
+        android:id="@+id/genderTextView"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        />
+
+    <TextView
+        android:id="@+id/cityTextView"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        />
+
+
+
+    <Button
+        android:id="@+id/loadNextButton"
+        android:text="@string/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
 
 </LinearLayout>

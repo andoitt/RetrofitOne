@@ -8,10 +8,11 @@
 
 
 
-    <TextView
+    <com.example.retrofitone.user.presentation.views.Info.CustomTextView
         android:id="@+id/userInfo"
         android:padding="16dp"
         android:gravity="center"
+        android:freezesText="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -37,7 +38,7 @@
 
 
 
-    <Button
+    <com.example.retrofitone.user.presentation.views.next.NextButton
         android:id="@+id/loadNextButton"
         android:text="@string/nextButton"
         android:layout_width="match_parent"

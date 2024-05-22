@@ -26,9 +26,8 @@ class ErrorUi(rootId: Matcher<View>?, rootClass: Matcher<View>?) {
         allOf(
             withId(id),
             isAssignableFrom(TextView::class.java),
-            withParent(rootId),
+            (rootId),
             rootClass
-
         )
     )
 

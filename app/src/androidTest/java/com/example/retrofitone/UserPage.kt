@@ -4,8 +4,8 @@ import android.widget.LinearLayout
 import androidx.test.espresso.matcher.ViewMatchers
 
 class UserPage(
-    private val gender: String,
-    private val city: String
+    private val gender: String = "",
+    private val city: String = "",
 ) {
 
 

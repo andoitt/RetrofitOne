@@ -21,7 +21,7 @@ class ProgressUi(rootId: Matcher<View>, rootClass: Matcher<View>) {
         Matchers.allOf(
             withId(id),
             ViewMatchers.isAssignableFrom(ProgressBar::class.java),
-            ViewMatchers.withParent(rootId),
+            (rootId),
             rootClass
         )
     )

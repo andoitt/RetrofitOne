@@ -7,22 +7,23 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ProgressBar
+    <com.example.retrofitone.load.presentation.views.progress.CustomProgress
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
+    <com.example.retrofitone.load.presentation.views.error.ErrorTextView
         android:id="@+id/errorTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         tools:text="Internet connection problems"
+        android:freezesText="true"
         android:padding="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor = "@color/orange"/>
 
-    <Button
+    <com.example.retrofitone.load.presentation.views.retry.RetryButton
         android:text="@string/retry"
         android:id="@+id/retryButton"
         android:layout_width="wrap_content"

@@ -1,10 +1,10 @@
-package com.example.retrofitone.load.presentation
+package com.example.retrofitone.user.presentation
 
 import androidx.fragment.app.Fragment
 import com.example.retrofitone.main.Screen
 
-object LoadScreen : Screen.Replace() {
+object UserScreen : Screen.Replace() {
     override fun fragment(): Fragment {
-        return LoadFragment()
+        return UserFragment()
     }
 }

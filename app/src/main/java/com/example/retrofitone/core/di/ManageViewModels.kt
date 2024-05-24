@@ -10,9 +10,4 @@ interface ClearViewModel {
     fun clear(clazz: Class<out MyViewModel>)
 }
 
-interface ProvideViewModel {
 
-    fun <T : MyViewModel> viewModel(clazz: Class<T>) : T
-
-
-}

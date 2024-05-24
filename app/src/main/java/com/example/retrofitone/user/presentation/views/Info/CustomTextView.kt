@@ -14,12 +14,12 @@ class CustomTextView : MaterialTextView, UpdateText {
         defStyleAttrs
     )
 
-    override fun update(text: String) {
+    override fun updateNewText(text: String) {
         setText(text)
     }
 }
 
 interface UpdateText {
 
-    fun update(text: String)
+    fun updateNewText(text: String)
 }

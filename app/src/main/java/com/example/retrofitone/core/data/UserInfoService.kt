@@ -40,7 +40,7 @@ class MockService(
 
     private var showSuccess = false
     override fun data(): Call<CloudResponse> {
-        Thread.sleep(2000)
+        Thread.sleep(1000)
         if (showSuccess) {
             showSuccess = false
             return object : Call<CloudResponse> {

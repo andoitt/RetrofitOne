@@ -3,6 +3,7 @@ package com.example.retrofitone
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.retrofitone.load.LoadPage
+import com.example.retrofitone.main.presentation.MainActivity
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -28,10 +29,6 @@ class ScenarioTest {
     @get:Rule
     val scenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
-
-  //  private lateinit var userPage: UserPage
-
-
     @Test
     fun testCase1() {
         val loadPage = LoadPage()
@@ -51,9 +48,8 @@ class ScenarioTest {
 
         loadPage.waitUntilDisappear()
         var userPage = UserPage(
-            gender = "male",
-            city = "Bela Palanka"
-
+            gender = "female",
+            city = "Portsmouth"
         )
         userPage.checkUserInfoState()
         scenarioRule.scenario.recreate()
@@ -61,7 +57,7 @@ class ScenarioTest {
 
         userPage.clickNextUser()
         loadPage.checkProgressState()
-        loadPage.checkProgressState()
+
         scenarioRule.scenario.recreate()
         loadPage.checkProgressState()
 
@@ -78,12 +74,10 @@ class ScenarioTest {
         loadPage.waitUntilDisappear()
         userPage = UserPage(
             gender = "male",
-            city = "Bela Palanka"
-
+            city = "Norwich"
         )
         userPage.checkUserInfoState()
         scenarioRule.scenario.recreate()
         userPage.checkUserInfoState()
-
     }
 }

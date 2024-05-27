@@ -11,7 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matcher
 import org.hamcrest.CoreMatchers.allOf
 
-class LoadNextButtonUi(rootId: Int, rootClass: Matcher<View>?) {
+class LoadNextButtonUi(rootId: Matcher<View>, rootClass: Matcher<View>?) {
 
     private val id: Int = R.id.loadNextButton
 
@@ -19,9 +19,9 @@ class LoadNextButtonUi(rootId: Int, rootClass: Matcher<View>?) {
     private val interaction = onView(
         allOf(
             withId(R.id.loadNextButton),
-            withText(R.string.load),
+            withText(R.string.nextButton),
             isAssignableFrom(Button::class.java),
-            withParent(rootId) ,
+            rootId ,
             rootClass,
         )
     )

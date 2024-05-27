@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">RetrofitOne</string>
-    <string name="retry" />
-    <string name="nextButton" />
-    <string name="load" />
+    <string name="retry">Retry</string>
+    <string name="nextButton">Next User</string>
 </resources>

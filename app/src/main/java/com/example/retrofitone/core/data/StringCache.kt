@@ -10,15 +10,34 @@ interface StringCache {
 
     class Base(
         private val key: String,
-        private val sharedPreferences: SharedPreferences,
+        private val stringPermanentStorage: StringPermanentStorage,
         private val defValue: String
     ) : StringCache {
         override fun save(value: String) {
-            sharedPreferences.edit().putString(key, value).apply()
+            stringPermanentStorage.save(key, value)
         }
 
         override fun read(): String {
-            return sharedPreferences.getString(key, defValue) ?: "default value"
+            return stringPermanentStorage.read(key, defValue)
+        }
+    }
+}
+
+interface StringPermanentStorage {
+
+    fun save(key: String, value: String)
+
+    fun read(key: String, defValue: String): String
+
+    class Base(
+        private val sharedPreferences: SharedPreferences,
+    ) : StringPermanentStorage {
+        override fun save(key: String, value: String) {
+            sharedPreferences.edit().putString(key, value).apply()
+        }
+
+        override fun read(key: String, defValue: String): String {
+            return sharedPreferences.getString(key, defValue) ?: defValue
         }
     }
 }

@@ -7,7 +7,7 @@ import android.widget.ProgressBar
 
 class CustomProgress : ProgressBar, UpdateProgress {
 
-    private lateinit var uiState: ProgressUiState
+
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet)
@@ -16,6 +16,18 @@ class CustomProgress : ProgressBar, UpdateProgress {
         attributeSet,
         defStyleAttrs
     )
+
+    private lateinit var uiState: ProgressUiState
+
+    override fun updateUiState(outer: ProgressUiState) {
+        uiState = outer
+        uiState.show(this)
+
+    }
+
+    override fun updateUi(visibility: Int) {
+        this.visibility = visibility
+    }
 
     override fun onSaveInstanceState(): Parcelable? {
         return super.onSaveInstanceState()?.let {
@@ -31,15 +43,7 @@ class CustomProgress : ProgressBar, UpdateProgress {
         updateUiState(restoredState.restore())
     }
 
-    override fun updateUiState(outer: ProgressUiState) {
-        uiState = outer
-        uiState.show(this)
 
-    }
-
-    override fun updateUi(visibility: Int) {
-        this.visibility = visibility
-    }
 }
 
 interface UpdateProgress {

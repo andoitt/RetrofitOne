@@ -1,18 +1,18 @@
 package com.example.retrofitone.main.data
 
 import com.example.retrofitone.core.data.StringCache
-import com.example.retrofitone.main.Screen
+import com.example.retrofitone.main.presentation.Screen
 
 interface MainRepository {
 
     fun lastSavedScreen(): Screen
 
     class Base(
-        private val lastScreen: StringCache
+        private val lastSavedScreen: StringCache
     ) : MainRepository {
+
         override fun lastSavedScreen(): Screen {
-            val string = lastScreen.read()
-            return Class.forName(string).getDeclaredConstructor().newInstance() as Screen
+            return Class.forName(lastSavedScreen.read()).getDeclaredConstructor().newInstance() as Screen
         }
     }
 }

@@ -5,7 +5,7 @@ import com.example.retrofitone.load.data.LoadResult
 import com.example.retrofitone.load.presentation.LoadUiState
 import com.example.retrofitone.load.presentation.LoadViewModel
 import com.example.retrofitone.load.presentation.UiObservable
-import com.example.retrofitone.main.RunAsync
+import com.example.retrofitone.main.presentation.RunAsync
 import org.junit.Test
 
 import org.junit.Assert.*

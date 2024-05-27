@@ -17,6 +17,10 @@ class CustomTextView : MaterialTextView, UpdateText {
     override fun updateNewText(text: String) {
         setText(text)
     }
+
+    override fun getFreezesText(): Boolean {
+        return true
+    }
 }
 
 interface UpdateText {

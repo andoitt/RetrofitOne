@@ -1,6 +1,10 @@
 package com.example.retrofitone.load.data
 
+import com.example.retrofitone.core.data.CacheDataSource
+import com.example.retrofitone.core.data.CloudDataSource
+import com.example.retrofitone.core.data.CloudResponse
 import com.example.retrofitone.core.data.StringCache
+import com.example.retrofitone.load.presentation.LoadScreen
 import java.lang.IllegalStateException
 
 interface LoadRepository {
@@ -14,11 +18,17 @@ interface LoadRepository {
         private val cacheDataSource: CacheDataSource
     ) : LoadRepository {
         override fun load(): LoadResult {
-            TODO("Not yet implemented")
+            return try {
+                val data: CloudResponse = cloudDataSource.data()
+                cacheDataSource.save(data)
+                LoadResult.Success
+            } catch (e: Exception) {
+                LoadResult.Error(e.message ?: "LoadRepository Error")
+            }
         }
 
         override fun lastScreenSaved() {
-            LoadResult::class.java.canonicalName?.let { lastSavedScreen.save(it)}
+           LoadScreen::class.java.canonicalName?.let { lastSavedScreen.save(it)}
         }
     }
 }

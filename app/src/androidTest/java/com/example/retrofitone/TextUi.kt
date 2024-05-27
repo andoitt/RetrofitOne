@@ -2,29 +2,26 @@ package com.example.retrofitone
 
 import android.view.View
 import android.widget.TextView
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.matcher.ViewMatchers
-import org.hamcrest.CoreMatchers
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.Matcher
+import org.hamcrest.Matchers.allOf
 
+class TextUi(id: Int, rootId: Matcher<View>, rootClass: Matcher<View>) {
 
-class TextUi(id: Any, rootId: Int, rootClass: Matcher<View>) {
-
-    private val id: Int = R.id.userInfo
-
-    private val interaction = Espresso.onView(
-        CoreMatchers.allOf(
-            ViewMatchers.withId(id),
-            ViewMatchers.isAssignableFrom(TextView::class.java),
-            ViewMatchers.withParent(rootId),
-            rootClass
-
+    private val interaction = onView(
+        allOf(
+            withId(id),
+            isAssignableFrom(TextView::class.java),
+            rootId,
+            rootClass,
         )
     )
 
     fun checkUserInfoState(text: String) {
-        interaction.check(ViewAssertions.matches(ViewMatchers.withText(text)))
+        interaction.check(matches(withText(text)))
     }
-
 }

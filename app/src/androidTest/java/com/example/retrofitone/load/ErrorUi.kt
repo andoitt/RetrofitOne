@@ -18,9 +18,7 @@ import org.hamcrest.Matchers.not
 
 class ErrorUi(rootId: Matcher<View>?, rootClass: Matcher<View>?) {
 
-
     private val id: Int = R.id.errorTextView
-
 
     private val interaction = onView(
         allOf(
@@ -36,10 +34,11 @@ class ErrorUi(rootId: Matcher<View>?, rootClass: Matcher<View>?) {
     }
 
     fun waitUntilVisible() {
-        onView(ViewMatchers.isRoot()).perform(WaitAction(id, isDisplayed(), 1100))
+        onView(ViewMatchers.isRoot()).perform(WaitAction(id, isDisplayed(), 2000))
     }
 
     fun checkVisible(message: String) {
-        interaction.check(matches(withText(message)))
+        interaction.check(matches(isDisplayed()))
+            .check(matches(withText(message)))
     }
 }

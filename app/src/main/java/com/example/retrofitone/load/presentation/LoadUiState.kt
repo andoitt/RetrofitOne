@@ -31,7 +31,8 @@ interface LoadUiState {
     }
 
     object Success : LoadUiState {
-        override fun update(progress: UpdateProgress, error: UpdateError, retry: UpdateRetry) = Unit
-
+        override fun navigate(navigate: () -> Unit) {
+            navigate.invoke()
+        }
     }
 }

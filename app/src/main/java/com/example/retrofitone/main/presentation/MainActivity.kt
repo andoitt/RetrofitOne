@@ -1,4 +1,4 @@
-package com.example.retrofitone.main
+package com.example.retrofitone.main.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,6 @@ import com.example.retrofitone.core.di.ManageViewModels
 import com.example.retrofitone.databinding.ActivityMainBinding
 import com.example.retrofitone.load.presentation.LoadNavigation
 import com.example.retrofitone.load.presentation.LoadScreen
-import com.example.retrofitone.load.presentation.LoadViewModel
 import com.example.retrofitone.user.presentation.UserNavigation
 import com.example.retrofitone.user.presentation.UserScreen
 
@@ -68,9 +67,8 @@ interface Screen {
 
         override fun show(containerId: Int, fragmentManager: FragmentManager) {
             fragmentManager.beginTransaction()
-                .replace(containerId, fragment())
+                .replace(R.id.container, fragment())
                 .commit()
-
         }
     }
 }

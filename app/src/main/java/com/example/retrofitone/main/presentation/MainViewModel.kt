@@ -1,4 +1,4 @@
-package com.example.retrofitone.main
+package com.example.retrofitone.main.presentation
 
 import android.os.Handler
 import android.os.Looper

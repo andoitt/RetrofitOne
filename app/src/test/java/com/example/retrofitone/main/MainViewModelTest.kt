@@ -1,6 +1,8 @@
 package com.example.retrofitone.main
 
 import com.example.retrofitone.main.data.MainRepository
+import com.example.retrofitone.main.presentation.MainViewModel
+import com.example.retrofitone.main.presentation.Screen
 import org.junit.Assert
 import org.junit.Test
 

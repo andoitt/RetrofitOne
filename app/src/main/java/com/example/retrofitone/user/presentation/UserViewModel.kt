@@ -1,6 +1,6 @@
 package com.example.retrofitone.user.presentation
 
-import com.example.retrofitone.main.MyViewModel
+import com.example.retrofitone.main.presentation.MyViewModel
 import com.example.retrofitone.user.data.UserRepository
 
 class UserViewModel(
